@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <link href="..\css\style.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title></title>
+    <style type="text/css">
+        <!--
+        .STYLE1 {
+            font-family: "宋体";
+            font-size: xx-large;
+        }
+
+        .STYLE3 {
+            font-size: x-large;
+        }
+
+        .STYLE4 {
+            font-size: xx-large
+        }
+
+        -->
+    </style>
+</head>
+<body>
+<div id="app">
+    <p class="MsoNormal" align="center">
+      <span class="STYLE1">{{product.productName}}</span>
+    </p>
+    <span style="font-size:10.5pt;font-family:宋体;"><span></span></span>
+    <p class="MsoNormal" align="center">
+      <img :src="product.productImage" width="708" height="481">
+    </p>
+
+    <p class="MsoNormal STYLE4">
+        <span style="font-family:宋体;color:#e53333;"><span
+                style="color:#e53333;"><strong>技术指标</strong></span></span>
+    </p>
+    <div align="center" style="margin:30px">
+        <table border="1" cellspacing="0">
+            <tr v-for="spec in product.productSpec">
+                <td width="209" valign="top"><p align="center" class="STYLE3">{{spec.split(",")[0]}} </p></td>
+                <td width="236" valign="top"><p align="center" class="STYLE3">{{spec.split(",")[1]}} </p></td>
+            </tr>
+            </tr>
+        </table>
+    </div>
+    <div align="center"></div>
+    <p class="MsoNormal STYLE4" style="text-align:left;">
+    <span style="font-family:宋体;font-weight:normal;color:#e53333;"><span
+            style="color:#e53333;"><strong>产品特点</strong></span></span></p>
+
+    <p v-for="feature in product.productFeatures" class="MsoNormal" style="text-indent:21pt;">
+    {{feature}}
+    </p>
+</div>
+
+</div>
+</body>
+
+<script>
+    const {createApp} = Vue
+    createApp({
+        data() {
+            return {
+                product: {}
+            }
+        },
+        mounted() {
+            // 获取URL中的查询字符串
+            const searchParams = window.location.search;
+            // 使用URLSearchParams解析查询字符串
+            const params = new URLSearchParams(searchParams);
+            // 获取特定的参数值
+            const typeName = params.get('typeName');
+            const productId = params.get('productId');
+            console.log("test")
+            fetch('/res/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    this.product = data[typeName][productId]
+                    console.log(this.product)
+                });
+        },
+
+    }).mount('#app')
+</script>
+</html>
