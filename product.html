@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
-    <link href="..\css\style.css" rel="stylesheet"/>
+    <link href="css\style.css" rel="stylesheet"/>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title></title>
     <style type="text/css">
@@ -77,7 +77,7 @@
             const typeName = params.get('typeName');
             const productId = params.get('productId');
             console.log("test")
-            fetch('/res/data.json')
+            fetch('res/data.json')
                 .then(response => response.json())
                 .then(data => {
                     this.product = data[typeName][productId]
