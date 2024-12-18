@@ -14,12 +14,8 @@
     <div class="product" v-for="(products,type) in productInfo">
         <div class="subtitle">{{type}}</div>
         <div class="item" v-for="product in products">
-            <a :href="'product.html?typeName='+type+'&productId='+product.productId">
-                <span class="itemtitle">{{product.productName}}</span>
-                <div class="content">
-                    <img :src="product.productImage" width="300"
-                         height="300" class="left"><img src="images/174.jpg" width="280" height="300"
-                                                        class="right"></div>
+            <a :href="'p1.html?typeName='+type+'&productName='+product">
+                <span class="itemtitle">{{product}}</span>
             </a>
         </div>
     </div>
@@ -37,11 +33,18 @@
             }
         },
         mounted() {
-            fetch('res/data.json')
+            // 获取URL中的查询字符串
+            const searchParams = window.location.search;
+            // 使用URLSearchParams解析查询字符串
+            const params = new URLSearchParams(searchParams);
+            // 获取特定的参数值
+            const typeName = params.get('typeName');
+            const productName = params.get('productName');
+
+            fetch('res/productData.json')
                 .then(response => response.json())
                 .then(data => this.productInfo = data);
         },
-
     }).mount('#app')
 </script>
 </html>
