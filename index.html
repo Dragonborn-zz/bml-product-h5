@@ -9,13 +9,13 @@
 </head>
 <body>
 <div id="app">
-    <div class="title"> 看图找资料</div>
-    <div class="subject">请长按与您手中设备相同外观的产品二维码，进行智能资料查找。</div>
+    <div class="title"> 宝马力传感</div>
+<!--    <div class="subject">请长按与您手中设备相同外观的产品二维码，进行智能资料查找。</div>-->
     <div class="product" v-for="(products,type) in productInfo">
         <div class="subtitle">{{type}}</div>
         <div class="item" v-for="product in products">
             <a :href="'p1.html?typeName='+type+'&productName='+product">
-                <span class="itemtitle">{{product}}</span>
+                <span class="content">{{product}}</span>
             </a>
         </div>
     </div>
@@ -29,7 +29,7 @@
     createApp({
         data() {
             return {
-                productInfo: null
+                productInfo: {}
             }
         },
         mounted() {
@@ -43,7 +43,14 @@
 
             fetch('res/productData.json')
                 .then(response => response.json())
-                .then(data => this.productInfo = data);
+                .then(data => {
+                    if (data[typeName] === undefined) {
+                        this.productInfo = data
+                    }else {
+                        this.productInfo[typeName] = data[typeName]
+                    }
+                });
+
         },
     }).mount('#app')
 </script>
