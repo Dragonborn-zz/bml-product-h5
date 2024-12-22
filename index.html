@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
 <!--<script src="https://cdn.jsdelivr.net/npm/@davidshimjs/qrcodejs@0.0.2/dist/qrcode.min.js"></script>-->
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/qrcode.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="app">
     <div class="title"> 宝马力传感</div>
 <!--    <div class="subject">请长按与您手中设备相同外观的产品二维码，进行智能资料查找。</div>-->
-    <div class="product" v-for="(products,type) in productInfo">
-        <div class="subtitle">{{type}}</div>
-        <div class="item" v-for="product in products">
-            <a :href="'p1.html?typeName='+type+'&productName='+product">
-                <span class="content">{{product}}</span>
+    <div id="qrcodeimg"></div>
+    <div class="product" v-for="type in productInfo">
+        <div class="subtitle">{{type.typeName}}</div>
+        <div class="item" v-for="product in type.products">
+            <a :href="'product.html?productId='+product.productId">
+                <span class="itemtitle">{{product.productName}}</span>
+                <div class="content">
+                    <img :src="'img/product/'+type.typeName+'/'+product.productName+'/main.jpg'" width="300" height="300" class="left" />
+                    <div ref="codeItem" class="right"></div>
+                </div>
             </a>
         </div>
     </div>
@@ -29,7 +36,8 @@
     createApp({
         data() {
             return {
-                productInfo: {}
+                productInfo: {},
+                productImg: {}
             }
         },
         mounted() {
@@ -49,9 +57,48 @@
                     }else {
                         this.productInfo[typeName] = data[typeName]
                     }
+                    this.bindQRCode()
                 });
+            // var qr = new QRCode(document.getElementById("qrcodeimg"), "https://www.runoob.com");
 
         },
+        methods: {
+            bindQRCode: function () {
+                let index = 0
+                this.$nextTick(() => {
+                    this.productInfo.forEach((item) => {
+                        item.products.forEach((product) => {
+                            this.$refs.codeItem[index].innerHTML="";
+                            let host = window.location.host;
+                            let url = host+'/bml-product-h5/product.html?productId='+product.productId
+                            url = encodeURI(url)
+                            new QRCode(this.$refs.codeItem[index], {
+                                text: url, //二维码内容
+                                width: 300,
+                                height: 300,
+                                render: 'table',
+                                colorDark: "#333333", //二维码颜色
+                                colorLight: "#ffffff", //二维码背景色
+                                correctLevel : QRCode.CorrectLevel.H //容错率，L/M/H
+                            })
+                            index++
+                        })
+                    })
+                },500)
+            },
+            makeQrCode(dom,text) {
+                var qrcode = new QRCode(dom, {
+                    text: text, //二维码内容
+                    width: 300,
+                    height: 300,
+                    render: 'table',
+                    colorDark: "#333333", //二维码颜色
+                    colorLight: "#ffffff", //二维码背景色
+                    correctLevel : QRCode.CorrectLevel.H //容错率，L/M/H
+                })
+            }
+        }
     }).mount('#app')
+
 </script>
 </html>

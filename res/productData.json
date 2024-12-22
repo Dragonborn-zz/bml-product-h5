@@ -1,40 +1,146 @@
-{
-    "压力产品": [
-        "PT201系列压力变送器",
-        "PT212系列压力变送器",
-        "PT310系列压力变送器"
-    ],
-    "安防产品": [
-        "ED803感烟探测器",
-        "JTY-GD-SDLH-96A烟雾探测器",
-        "M51900-AL红外微波双鉴探测器",
-        "M520门磁开关",
-        "SDLH-94R光电感烟探测器",
-        "SDLH-95Z烟雾探测器"
-    ],
-    "水浸液位产品": [
-        "SJ512水浸开关",
-        "SJ516光电式水浸开关",
-        "SJ519水浸开关",
-        "SJ523水浸开关",
-        "SJ535A水浸开关",
-        "SJ536M2定位液漏控制器",
-        "YW112杆式液位变送器",
-        "YW223液位测控模组",
-        "YW515固态液位传感器",
-        "YW517CK水浸开关",
-        "YW518C-L185-H140 浮球液位变送器"
-    ],
-    "温湿度产品": [
-        "WS301系列温湿度变送器",
-        "WS302系列温湿度变送器",
-        "WS302M2A-5系列温湿度变送器",
-        "WS302M温湿度变送器",
-        "WS311系列温湿度变送器",
-        "WS313系列温湿度变送器",
-        "WS352M1-5温湿度变送器",
-        "WS362C1T系列温湿度变送器",
-        "WS375M温湿度变送器",
-        "WS508C、D温湿度表"
-    ]
-}
+[
+    {
+        "typeId": "0",
+        "typeName": "压力产品",
+        "products": [
+            {
+                "productId": "0-0",
+                "productName": "PT201系列压力变送器"
+            },
+            {
+                "productId": "0-1",
+                "productName": "PT212系列压力变送器"
+            },
+            {
+                "productId": "0-2",
+                "productName": "PT310系列压力变送器"
+            }
+        ]
+    },
+    {
+        "typeId": "1",
+        "typeName": "安防产品",
+        "products": [
+            {
+                "productId": "1-0",
+                "productName": "ED803感烟探测器"
+            },
+            {
+                "productId": "1-1",
+                "productName": "JTY-GD-SDLH-96A烟雾探测器"
+            },
+            {
+                "productId": "1-2",
+                "productName": "M51900-AL红外微波双鉴探测器"
+            },
+            {
+                "productId": "1-3",
+                "productName": "M520门磁开关"
+            },
+            {
+                "productId": "1-4",
+                "productName": "SDLH-94R光电感烟探测器"
+            },
+            {
+                "productId": "1-5",
+                "productName": "SDLH-95Z烟雾探测器"
+            }
+        ]
+    },
+    {
+        "typeId": "2",
+        "typeName": "水浸液位产品",
+        "products": [
+            {
+                "productId": "2-0",
+                "productName": "SJ512水浸开关"
+            },
+            {
+                "productId": "2-1",
+                "productName": "SJ516光电式水浸开关"
+            },
+            {
+                "productId": "2-2",
+                "productName": "SJ519水浸开关"
+            },
+            {
+                "productId": "2-3",
+                "productName": "SJ523水浸开关"
+            },
+            {
+                "productId": "2-4",
+                "productName": "SJ535A水浸开关"
+            },
+            {
+                "productId": "2-5",
+                "productName": "SJ536M2定位液漏控制器"
+            },
+            {
+                "productId": "2-6",
+                "productName": "YW112杆式液位变送器"
+            },
+            {
+                "productId": "2-7",
+                "productName": "YW223液位测控模组"
+            },
+            {
+                "productId": "2-8",
+                "productName": "YW515固态液位传感器"
+            },
+            {
+                "productId": "2-9",
+                "productName": "YW517CK水浸开关"
+            },
+            {
+                "productId": "2-10",
+                "productName": "YW518C-L185-H140 浮球液位变送器"
+            }
+        ]
+    },
+    {
+        "typeId": "3",
+        "typeName": "温湿度产品",
+        "products": [
+            {
+                "productId": "3-0",
+                "productName": "WS301系列温湿度变送器"
+            },
+            {
+                "productId": "3-1",
+                "productName": "WS302系列温湿度变送器"
+            },
+            {
+                "productId": "3-2",
+                "productName": "WS302M2A-5系列温湿度变送器"
+            },
+            {
+                "productId": "3-3",
+                "productName": "WS302M温湿度变送器"
+            },
+            {
+                "productId": "3-4",
+                "productName": "WS311系列温湿度变送器"
+            },
+            {
+                "productId": "3-5",
+                "productName": "WS313系列温湿度变送器"
+            },
+            {
+                "productId": "3-6",
+                "productName": "WS352M1-5温湿度变送器"
+            },
+            {
+                "productId": "3-7",
+                "productName": "WS362C1T系列温湿度变送器"
+            },
+            {
+                "productId": "3-8",
+                "productName": "WS375M温湿度变送器"
+            },
+            {
+                "productId": "3-9",
+                "productName": "WS508C、D温湿度表"
+            }
+        ]
+    }
+]
