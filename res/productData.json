@@ -115,30 +115,26 @@
             },
             {
                 "productId": "3-3",
-                "productName": "WS302M温湿度变送器"
-            },
-            {
-                "productId": "3-4",
                 "productName": "WS311系列温湿度变送器"
             },
             {
-                "productId": "3-5",
+                "productId": "3-4",
                 "productName": "WS313系列温湿度变送器"
             },
             {
-                "productId": "3-6",
+                "productId": "3-5",
                 "productName": "WS352M1-5温湿度变送器"
             },
             {
-                "productId": "3-7",
+                "productId": "3-6",
                 "productName": "WS362C1T系列温湿度变送器"
             },
             {
-                "productId": "3-8",
+                "productId": "3-7",
                 "productName": "WS375M温湿度变送器"
             },
             {
-                "productId": "3-9",
+                "productId": "3-8",
                 "productName": "WS508C、D温湿度表"
             }
         ]

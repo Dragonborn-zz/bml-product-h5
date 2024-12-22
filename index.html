@@ -46,16 +46,15 @@
             // 使用URLSearchParams解析查询字符串
             const params = new URLSearchParams(searchParams);
             // 获取特定的参数值
-            const typeName = params.get('typeName');
-            const productName = params.get('productName');
+            const typeId = params.get('typeId');
 
             fetch('res/productData.json')
                 .then(response => response.json())
                 .then(data => {
-                    if (data[typeName] === undefined) {
+                    if (data[typeId] === undefined) {
                         this.productInfo = data
                     }else {
-                        this.productInfo[typeName] = data[typeName]
+                        this.productInfo[typeId] = data[typeId]
                     }
                     this.bindQRCode()
                 });
