@@ -36,7 +36,7 @@
     createApp({
         data() {
             return {
-                productInfo: {},
+                productInfo: [],
                 productImg: {}
             }
         },
@@ -54,7 +54,11 @@
                     if (data[typeId] === undefined) {
                         this.productInfo = data
                     }else {
-                        this.productInfo[typeId] = data[typeId]
+                        data.forEach((item) => {
+                            if (item.typeId === typeId) {
+                                this.productInfo.push(item)
+                            }
+                        })
                     }
                     this.bindQRCode()
                 });
@@ -65,6 +69,7 @@
             bindQRCode: function () {
                 let index = 0
                 this.$nextTick(() => {
+                    // console.log(this.productInfo)
                     this.productInfo.forEach((item) => {
                         item.products.forEach((product) => {
                             this.$refs.codeItem[index].innerHTML="";
