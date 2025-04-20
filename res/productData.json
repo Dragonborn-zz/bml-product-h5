@@ -14,6 +14,14 @@
             {
                 "productId": "0-2",
                 "productName": "PT310系列压力变送器"
+            },
+            {
+                "productId": "0-3",
+                "productName": "PT712-1M2G42压力变送器"
+            },
+            {
+                "productId": "0-4",
+                "productName": "PT712-1M4G33压力变送器"
             }
         ]
     },
@@ -86,6 +94,26 @@
             {
                 "productId": "2-10",
                 "productName": "YW518C-L185-H140 浮球液位变送器"
+            },
+            {
+                "productId": "2-11",
+                "productName": "YW112M3液位变送器"
+            },
+            {
+                "productId": "2-12",
+                "productName": "YW117V2M1液位变送器"
+            },
+            {
+                "productId": "2-13",
+                "productName": "YW125C液位变送器"
+            },
+            {
+                "productId": "2-14",
+                "productName": "YW126A液位变送器"
+            },
+            {
+                "productId": "2-15",
+                "productName": "YW518B2液位变送器"
             }
         ]
     },
@@ -124,6 +152,18 @@
             {
                 "productId": "3-7",
                 "productName": "WS508C、D温湿度表"
+            },
+            {
+                "productId": "3-8",
+                "productName": "W223M1A 温度模块"
+            },
+            {
+                "productId": "3-9",
+                "productName": "WS336M2温湿度变送器"
+            },
+            {
+                "productId": "3-10",
+                "productName": "WS622M2 温度巡检模块"
             }
         ]
     }
