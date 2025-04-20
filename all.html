@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="css/style.css">
+
+<!--<script src="https://cdn.jsdelivr.net/npm/@davidshimjs/qrcodejs@0.0.2/dist/qrcode.min.js"></script>-->
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/qrcode.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="app">
+    <div v-for="index in 5">
+
+        <img :src="'/img/other/all-'+index+'.png'" class="left"/>
+
+    </div>
+</div>
+
+</body>
+
+
+<script>
+    const {createApp, ref} = Vue
+    createApp({
+        data() {
+            return {
+                productInfo: [],
+                productImg: {}
+            }
+        },
+        mounted() {
+            // 获取URL中的查询字符串
+            const searchParams = window.location.search;
+            // 使用URLSearchParams解析查询字符串
+            const params = new URLSearchParams(searchParams);
+            // 获取特定的参数值
+            const typeId = params.get('typeId');
+
+            fetch('res/productData.json')
+                .then(response => response.json())
+                .then(data => {
+                    if (data[typeId] === undefined) {
+                        this.productInfo = data
+                    } else {
+                        data.forEach((item) => {
+                            if (item.typeId === typeId) {
+                                this.productInfo.push(item)
+                            }
+                        })
+                    }
+                    this.bindQRCode()
+                });
+            // var qr = new QRCode(document.getElementById("qrcodeimg"), "https://www.runoob.com");
+
+        },
+        methods: {
+            bindQRCode: function () {
+                let index = 0
+            },
+            makeQrCode(dom, text) {
+                var qrcode = new QRCode(dom, {
+                    text: text, //二维码内容
+                    width: 300,
+                    height: 300,
+                    render: 'table',
+                    colorDark: "#333333", //二维码颜色
+                    colorLight: "#ffffff", //二维码背景色
+                    correctLevel: QRCode.CorrectLevel.H //容错率，L/M/H
+                })
+            }
+        }
+    }).mount('#app')
+
+</script>
+</html>
