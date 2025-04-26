@@ -15,7 +15,13 @@
 <!--    <div class="subject">请长按与您手中设备相同外观的产品二维码，进行智能资料查找。</div>-->
     <div id="qrcodeimg"></div>
     <div class="product" v-for="type in productInfo">
-        <div class="subtitle">{{type.typeName}}</div>
+        <a :href="'type.html?typeId='+type.typeId">
+            <div class="subtitle">
+                <p>{{type.typeName}}</p>
+                <p v-show="type.typeId!=='1'" style="font-size:14px;">点击了解更多产品型号定义</p>
+            </div>
+        </a>
+
         <div class="item" v-for="product in type.products">
             <a :href="'product.html?productId='+product.productId">
                 <span class="itemtitle">{{product.productName}}</span>

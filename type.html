@@ -12,9 +12,7 @@
 <body>
 <div id="app">
     <div v-for="index in 5">
-
-        <img :src="'img/other/all-'+index+'.png'" class="left"/>
-
+        <img :src="'img/other/'+typeId+'-'+index+'.png'" @error="handleError" style="width:100%;height: 100%; margin-left: auto; margin-right: auto; display: block;" />
     </div>
 </div>
 
@@ -27,13 +25,22 @@
         data() {
             return {
                 productInfo: [],
-                productImg: {}
+                productImg: {},
+                typeId: null
             }
         },
         mounted() {
+            // 获取URL中的查询字符串
+            const searchParams = window.location.search;
+            // 使用URLSearchParams解析查询字符串
+            const params = new URLSearchParams(searchParams);
+            // 获取特定的参数值
+            this.typeId = params.get('typeId');
         },
         methods: {
-
+            handleError(event) {
+                event.target.style.display="none"
+            }
         }
     }).mount('#app')
 
